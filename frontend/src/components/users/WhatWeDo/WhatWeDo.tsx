@@ -25,7 +25,7 @@ const WhatWeDo = () => {
           {whatWeDoData.map((data) => (
             <div
               key={data.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+              className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col justify-between"
             >
               {/* Image Section */}
               <div className="relative h-48 overflow-hidden">
@@ -42,9 +42,7 @@ const WhatWeDo = () => {
                   {data.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{data.description}</p>
-                <button className="bg-orange-500 text-white px-6 py-2 rounded-full font-medium hover:bg-orange-600 transition-colors duration-200">
-                  {data.buttonText}
-                </button>
+                <button className="btn-primary ">{data.buttonText}</button>
               </div>
             </div>
           ))}
@@ -61,7 +59,9 @@ const WhatWeDo = () => {
               <button className="p-2 bg-white rounded-lg shadow-md hover:bg-gray-100 transition-colors duration-200">
                 <ArrowRightSquareIcon className="w-6 h-6 text-orange-500" />
               </button>
-              <p className="ml-[1rem] hover:underline  text-neutral-500 tracking-widest">Donate now</p>
+              <p className="ml-[1rem] hover:underline  text-neutral-500 tracking-widest">
+                Donate now
+              </p>
             </div>
           </div>
         </div>
