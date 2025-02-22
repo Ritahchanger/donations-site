@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Search } from "lucide-react";
 
@@ -6,9 +6,31 @@ import { CircleArrowLeft } from "lucide-react";
 
 import { Menu } from "lucide-react";
 
+import "./Navbar.css"
+
 const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
+  const [navBg, setNavBg] = useState(false);
+
+  useEffect(() => {
+    const handler = () => {
+      if (window.scrollY >= 90) {
+        setNavBg(true);
+      } else {
+        setNavBg(false);
+      }
+    };
+
+    window.addEventListener("scroll", handler);
+
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
   return (
-    <header className="shadow-md fixed w-full right-0 left-0 top-0 z-20">
+    <header
+      className={`fixed w-full top-0 left-0 right-0 z-20 transition-colors duration-300 ${
+        navBg ? "bg-white shadow-md navBg" : "bg-transparent"
+      }`}
+    >
       <nav className="container mx-auto flex justify-between items-center h-[50px] px-4">
         {/* Logo */}
         <div>
@@ -19,7 +41,7 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
             <span className="mr-[0.6rem]">
               <CircleArrowLeft className="text-orange-500 h-[37px] w-[37px]" />
             </span>
-            LOGO
+            <p className="text-white font-semibold"> LOGO</p>
           </Link>
         </div>
 
