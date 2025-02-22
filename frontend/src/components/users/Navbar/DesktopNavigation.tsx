@@ -1,0 +1,66 @@
+import React from "react";
+import Link from "next/link";
+import { Search } from "lucide-react";
+
+import { CircleArrowLeft } from "lucide-react";
+
+import { Menu } from "lucide-react";
+
+const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
+  return (
+    <header className="shadow-md fixed w-full right-0 left-0 top-0 z-20">
+      <nav className="container mx-auto flex justify-between items-center h-[50px] px-4">
+        {/* Logo */}
+        <div>
+          <Link
+            href="/"
+            className="text-xl flex  items-center font-bold text-gray-800"
+          >
+            <span className="mr-[0.6rem]">
+              <CircleArrowLeft className="text-orange-500 h-[37px] w-[37px]" />
+            </span>
+            LOGO
+          </Link>
+        </div>
+
+        {/* Navigation Links */}
+        <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
+          {[
+            "Home",
+            "About Us",
+            "Donation",
+            "Volunteers",
+            "News",
+            "Contact Us",
+          ].map((item) => (
+            <li key={item}>
+              <Link
+                href={`/${item.toLowerCase().replace(" ", "-")}`}
+                className="hover:text-orange-500 transition text-white"
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Actions */}
+        <div className="flex items-center gap-4">
+          <Link href="/donate">
+            <button className="bg-orange-500 text-white px-5 py-2 rounded-full font-medium border-2 border-orange-500 transition hover:bg-transparent hover:text-orange-500">
+              Donate Now
+            </button>
+          </Link>
+          <button className="p-2 text-gray-600 hover:text-gray-900 transition">
+            <Search className="w-5 h-5 text-orange-500" />
+          </button>
+          <button className="block md:hidden" onClick={openNavbar}>
+            <Menu className="text-orange-500 h-10 w-10" />
+          </button>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default DesktopNavigation;
