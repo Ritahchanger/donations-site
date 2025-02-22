@@ -5,6 +5,7 @@ import Hero from "@/components/users/Hero/Hero";
 import Navbar from "@/components/users/Navbar/Navbar";
 import WhatWeDo from "@/components/users/WhatWeDo/WhatWeDo";
 import Needs from "@/components/Needs/Needs";
+import MoneyRaised from "@/components/MoneyRaised/MoneyRaised";
 export default function Home() {
   return (
     <div>
@@ -14,6 +15,7 @@ export default function Home() {
       <WhatWeDo />
       <GetInvolved />
       <Needs />
+      <MoneyRaised/>
       <Footer />
     </div>
   );
