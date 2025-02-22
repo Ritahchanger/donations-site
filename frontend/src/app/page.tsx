@@ -6,6 +6,7 @@ import Navbar from "@/components/users/Navbar/Navbar";
 import WhatWeDo from "@/components/users/WhatWeDo/WhatWeDo";
 import Needs from "@/components/Needs/Needs";
 import MoneyRaised from "@/components/MoneyRaised/MoneyRaised";
+import WhatsAppIcon from "@/components/users/WhatsAppIcon/WhatsAppIcon";
 export default function Home() {
   return (
     <div>
@@ -15,7 +16,8 @@ export default function Home() {
       <WhatWeDo />
       <GetInvolved />
       <Needs />
-      <MoneyRaised/>
+      <MoneyRaised />
+      <WhatsAppIcon />
       <Footer />
     </div>
   );
