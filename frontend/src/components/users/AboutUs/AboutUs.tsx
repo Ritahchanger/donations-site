@@ -1,7 +1,7 @@
 import { HandCoinsIcon } from "lucide-react";
 const AboutUs = () => {
   return (
-    <div className="py-4 mt-[8rem] bg-gray-50">
+    <div className="py-4 mt-1 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Image Section */}
@@ -19,7 +19,7 @@ const AboutUs = () => {
             <div>
               <div className="flex items-center gap-[1rem]">
                 <span className="block mb-4">
-                  <HandCoinsIcon size={50} />
+                  <HandCoinsIcon size={50} className="text-orange-500" />
                 </span>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
                   ABOUT US
@@ -64,6 +64,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+       
       </div>
     </div>
   );

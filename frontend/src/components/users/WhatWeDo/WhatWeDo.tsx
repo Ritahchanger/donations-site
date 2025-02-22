@@ -1,4 +1,6 @@
 import { whatWeDoData } from "@/constants/WhatWeDoData";
+import { ArrowRightSquareIcon } from "lucide-react";
+
 import { HandCoinsIcon } from "lucide-react";
 
 const WhatWeDo = () => {
@@ -46,6 +48,22 @@ const WhatWeDo = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="h-[100px] flex items-center bg-gradient-to-b from-orange-500 to-orange-600 p-4 mt-[2rem]">
+          <div className="container mx-auto flex justify-between items-center">
+            {/* Text Section */}
+            <p className="text-white text-lg font-semibold">
+              Your donation is important to someone's life
+            </p>
+
+            {/* Button Section */}
+            <div className="flex justify-between items-center ">
+              <button className="p-2 bg-white rounded-lg shadow-md hover:bg-gray-100 transition-colors duration-200">
+                <ArrowRightSquareIcon className="w-6 h-6 text-orange-500" />
+              </button>
+              <p className="ml-[1rem] hover:underline  text-neutral-500 tracking-widest">Donate now</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
