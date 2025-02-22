@@ -6,7 +6,7 @@ import { CircleArrowLeft } from "lucide-react";
 
 import { Menu } from "lucide-react";
 
-import "./Navbar.css"
+import "./Navbar.css";
 
 const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
   const [navBg, setNavBg] = useState(false);
@@ -69,7 +69,7 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
         {/* Actions */}
         <div className="flex items-center gap-4">
           <Link href="/donate">
-            <button className="bg-orange-500 text-white px-5 py-2 rounded-full font-medium border-2 border-orange-500 transition hover:bg-transparent hover:text-orange-500">
+            <button className="bg-orange-500 text-white px-5 py-[0.2rem] rounded-full font-medium border-2 border-orange-500 transition hover:bg-transparent hover:text-orange-500">
               Donate Now
             </button>
           </Link>
