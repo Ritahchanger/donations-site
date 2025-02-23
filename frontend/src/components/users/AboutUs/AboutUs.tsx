@@ -1,4 +1,5 @@
 import { HandCoinsIcon } from "lucide-react";
+import MajorSectionTitle from "@/components/Titles/Section";
 const AboutUs = () => {
   return (
     <div className="py-4 mt-1 bg-gray-50">
@@ -17,17 +18,11 @@ const AboutUs = () => {
           <div className="w-full md:w-1/2 lg:w-3/5 space-y-8">
             {/* About Us Section */}
             <div>
-              <div className="flex items-center gap-[1rem]">
-                <span className="block mb-4">
-                  <HandCoinsIcon size={50} className="text-orange-500" />
-                </span>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  ABOUT US
-                </h2>
-              </div>
-              <p className="text-lg text-gray-600 font-semibold mb-4">
+              <MajorSectionTitle title="ABOUT US" centered={false} />
+              <p className="text-lg text-gray-700 font-medium mt-4">
                 Helping Our Youths
               </p>
+
               <p className="text-gray-600 leading-relaxed">
                 Simple Boy Foundation is a Kenyan-based NGO committed to
                 combating drug and substance abuse among the youth, particularly
@@ -64,7 +59,6 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-       
       </div>
     </div>
   );

@@ -1,22 +1,28 @@
 import { HandCoinsIcon } from "lucide-react";
+
 const MajorSectionTitle = ({
   title,
   centered,
 }: {
-  title: any;
-  centered: any;
+  title: string;
+  centered?: boolean;
 }) => {
   return (
     <div>
       <div
-        className={`flex items-start  gap-4 ${
-          centered ? "justify-center" : ""
+        className={`flex items-center gap-4 flex-wrap ${
+          centered ? "justify-center text-center" : ""
         }`}
       >
+        {/* Icon with Responsive Sizing */}
         <span className="text-orange-500">
-          <HandCoinsIcon size={50} />
+          <HandCoinsIcon size={40} className="" />
         </span>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+
+        {/* Title with Responsive Font Sizes */}
+        <h2 className="text-xl md:text-3xl  font-bold text-gray-900">
+          {title}
+        </h2>
       </div>
     </div>
   );

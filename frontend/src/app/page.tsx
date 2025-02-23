@@ -8,6 +8,8 @@ import Needs from "@/components/Needs/Needs";
 import MoneyRaised from "@/components/MoneyRaised/MoneyRaised";
 import WhatsAppIcon from "@/components/users/WhatsAppIcon/WhatsAppIcon";
 import Donate from "@/components/users/Donate/Donate";
+import Events from "@/components/Events/Events";
+import LatestNews from "@/components/LatestNews/LatestNews";
 export default function Home() {
   return (
     <div>
@@ -18,7 +20,9 @@ export default function Home() {
       <GetInvolved />
       <Needs />
       <MoneyRaised />
-      <Donate/>
+      <Donate />
+      <Events />
+      <LatestNews />
       <WhatsAppIcon />
       <Footer />
     </div>
