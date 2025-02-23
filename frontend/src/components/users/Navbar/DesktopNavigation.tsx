@@ -28,7 +28,7 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
   return (
     <header
       className={`fixed w-full top-0 left-0 right-0 z-20 transition-colors duration-300 ${
-        navBg ? "bg-white shadow-md navBg" : "bg-transparent"
+        navBg ? "bg-green-500 shadow-md navBg" : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto flex justify-between items-center h-[50px] px-4">
