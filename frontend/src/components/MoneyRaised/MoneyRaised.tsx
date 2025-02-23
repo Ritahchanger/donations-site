@@ -28,7 +28,7 @@ const MoneyRaised = () => {
             </span>
             <div>
               <h3 className="text-3xl font-bold text-gray-900">
-                <CountUp end={130} duration={8} prefix="KESH " separator="," />
+                <CountUp end={130} duration={8} prefix="KSH " separator="," />
               </h3>
               <p className="text-gray-600">Raised Now</p>
             </div>
