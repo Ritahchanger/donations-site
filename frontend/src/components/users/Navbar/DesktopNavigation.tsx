@@ -56,7 +56,7 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
           {[
-            { name: "Home", id: "home" },
+            { name: "Home", id: "hero" },
             { name: "About Us", id: "about" },
             { name: "Donation", id: "donate" },
             { name: "Volunteers", id: "volunteers" },

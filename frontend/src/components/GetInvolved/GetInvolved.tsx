@@ -23,14 +23,14 @@ const GetInvolved = () => {
 
           {/* Video Section */}
           <div className="rounded-lg overflow-hidden shadow-lg">
-            <video
-              src="https://youtu.be/rxMyBiKRLt0?si=CKGlG_iKe5TJrPtO"
-              className="w-full h-auto object-cover"
-              autoPlay
-              muted
-              loop
-              controls
-            ></video>
+            <iframe
+              className="w-full h-64 sm:h-80 lg:h-96"
+              src="https://www.youtube.com/embed/rxMyBiKRLt0"
+              title="Get Involved Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>
