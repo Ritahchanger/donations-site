@@ -1,3 +1,4 @@
+"use client";
 import GetInvolved from "@/components/GetInvolved/GetInvolved";
 import AboutUs from "@/components/users/AboutUs/AboutUs";
 import Footer from "@/components/users/Footer/Footer";

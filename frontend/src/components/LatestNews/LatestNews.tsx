@@ -5,7 +5,7 @@ import { news } from "@/constants/LatestData";
 
 const LatestNews = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50" id="news">
       <div className="container">
         {/* Section Title */}
         <div className="text-center mb-10">

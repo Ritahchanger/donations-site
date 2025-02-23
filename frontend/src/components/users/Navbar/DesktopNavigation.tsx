@@ -25,6 +25,14 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <header
       className={`fixed w-full top-0 left-0 right-0 z-20 transition-colors duration-300 ${
@@ -48,20 +56,20 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
           {[
-            "Home",
-            "About Us",
-            "Donation",
-            "Volunteers",
-            "News",
-            "Contact Us",
-          ].map((item) => (
-            <li key={item}>
-              <Link
-                href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className="hover:text-orange-500 transition text-white tracking-wider"
+            { name: "Home", id: "home" },
+            { name: "About Us", id: "about" },
+            { name: "Donation", id: "donate" },
+            { name: "Volunteers", id: "volunteers" },
+            { name: "News", id: "news" },
+            { name: "Contact Us", id: "contact" },
+          ].map(({ name, id }) => (
+            <li key={id}>
+              <button
+                onClick={() => handleScroll(id)}
+                className="hover:text-orange-500 transition text-white tracking-wider focus:outline-none"
               >
-                {item}
-              </Link>
+                {name}
+              </button>
             </li>
           ))}
         </ul>

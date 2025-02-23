@@ -4,7 +4,7 @@ import MajorSectionTitle from "@/components/Titles/Section";
 
 const Donate = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white" id="donate">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <MajorSectionTitle title="DONATE" centered />

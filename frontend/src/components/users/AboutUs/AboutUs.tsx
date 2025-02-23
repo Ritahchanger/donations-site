@@ -2,7 +2,7 @@ import { HandCoinsIcon } from "lucide-react";
 import MajorSectionTitle from "@/components/Titles/Section";
 const AboutUs = () => {
   return (
-    <div className="py-4 mt-1 bg-gray-50">
+    <div className="py-12 mt-1 bg-gray-50" id="about">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Image Section */}
