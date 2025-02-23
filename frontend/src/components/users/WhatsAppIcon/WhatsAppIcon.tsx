@@ -7,6 +7,7 @@ const WhatsAppIcon = () => {
   const [showNotification, setShowNotification] = useState(false);
   const notificationRef = useRef<HTMLDivElement | null>(null);
 
+  const [whatsappNumber, setWhatsAppNumber] = useState("0113174493");
   // Hide notification when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -26,6 +27,10 @@ const WhatsAppIcon = () => {
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showNotification]);
+
+  const handleWhatsAppChat = () => {
+    window.open(`https://wa.me/254${whatsappNumber}`, "_blank");
+  };
 
   return (
     <div className="fixed right-8 bottom-8 z-50">
@@ -63,7 +68,10 @@ const WhatsAppIcon = () => {
             </button>
           </div>
 
-          <div className="flex items-center mt-4 p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition-all">
+          <div
+            className="flex items-center mt-4 p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition-all"
+            onClick={handleWhatsAppChat}
+          >
             <User className="mr-3 text-green-500" />
             <p className="text-gray-800 font-medium">Dennis Peter Munyao</p>
           </div>
