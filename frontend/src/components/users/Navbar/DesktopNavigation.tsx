@@ -58,7 +58,7 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
             <li key={item}>
               <Link
                 href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className="hover:text-orange-500 transition text-white"
+                className="hover:text-orange-500 transition text-white tracking-wider"
               >
                 {item}
               </Link>
