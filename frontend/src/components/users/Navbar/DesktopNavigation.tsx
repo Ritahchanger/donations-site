@@ -8,7 +8,13 @@ import { Menu } from "lucide-react";
 
 import "./Navbar.css";
 
-const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
+const DesktopNavigation = ({
+  openNavbar,
+  setContactComponent,
+}: {
+  openNavbar: any;
+  setContactComponent: any;
+}) => {
   const [navBg, setNavBg] = useState(false);
 
   useEffect(() => {
@@ -65,7 +71,13 @@ const DesktopNavigation = ({ openNavbar }: { openNavbar: any }) => {
           ].map(({ name, id }) => (
             <li key={id}>
               <button
-                onClick={() => handleScroll(id)}
+                onClick={() => {
+                  handleScroll(id);
+
+                  if (id === "contact") {
+                    setContactComponent(true);
+                  }
+                }}
                 className="hover:text-orange-500 transition text-white tracking-wider focus:outline-none"
               >
                 {name}

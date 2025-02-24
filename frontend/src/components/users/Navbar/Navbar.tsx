@@ -2,7 +2,7 @@
 import { useState } from "react";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileNavigation from "./MobileNavigation";
-const Navbar = () => {
+const Navbar = ({ setContactComponent }: { setContactComponent: any }) => {
   const [mobileNavbar, showMobileNavbar] = useState(false);
 
   const openNavbar = () => {
@@ -14,7 +14,10 @@ const Navbar = () => {
 
   return (
     <>
-      <DesktopNavigation openNavbar={openNavbar} />
+      <DesktopNavigation
+        openNavbar={openNavbar}
+        setContactComponent={setContactComponent}
+      />
       <MobileNavigation closeNavbar={closeNavbar} mobileNavbar={mobileNavbar} />
     </>
   );
