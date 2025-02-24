@@ -18,7 +18,7 @@ const Navbar = ({ setContactComponent }: { setContactComponent: any }) => {
         openNavbar={openNavbar}
         setContactComponent={setContactComponent}
       />
-      <MobileNavigation closeNavbar={closeNavbar} mobileNavbar={mobileNavbar} />
+      <MobileNavigation closeNavbar={closeNavbar} mobileNavbar={mobileNavbar} setContactComponent={setContactComponent} />
     </>
   );
 };

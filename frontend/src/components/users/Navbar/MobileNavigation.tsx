@@ -1,13 +1,13 @@
 import { X } from "lucide-react";
 
-type MobileNavigationProps = {
-  closeNavbar: () => void;
-  mobileNavbar: boolean;
-};
-
-const MobileNavigation: React.FC<MobileNavigationProps> = ({
+const MobileNavigation = ({
   closeNavbar,
   mobileNavbar,
+  setContactComponent,
+}: {
+  closeNavbar: any;
+  mobileNavbar: any;
+  setContactComponent: any;
 }) => {
   const handleNavigation = (id: string) => {
     const element = document.getElementById(id);
@@ -49,7 +49,13 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
           ].map(({ name, id }) => (
             <li key={id} className="border-b border-neutral-300 cursor-pointer">
               <button
-                onClick={() => handleNavigation(id)}
+                onClick={() => {
+                  handleNavigation(id);
+
+                  if (id === "contact") {
+                    setContactComponent(true);
+                  }
+                }}
                 className="transition text-white px-6 py-4 block w-full text-left hover:bg-black hover:text-white"
               >
                 {name}

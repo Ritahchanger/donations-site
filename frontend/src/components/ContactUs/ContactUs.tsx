@@ -1,29 +1,32 @@
 import React from "react";
-
 import { X } from "lucide-react";
 
 const ContactUs = ({
   setContactComponent,
   contactComponentShown,
 }: {
-  setContactComponent: any;
-  contactComponentShown: any;
+  setContactComponent: (show: boolean) => void;
+  contactComponentShown: boolean;
 }) => {
   return (
     <div
-      className={`fixed inset-0 z-50 bg-black/50 flex justify-center items-center ${
-        contactComponentShown ? "visible" : "hidden"
+      className={`fixed inset-0 z-50 bg-black/50 flex justify-center items-center transition-opacity duration-300 ${
+        contactComponentShown ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
-      <div className="max-w-[500px] bg-white w-[90%] rounded-sm shadow-lg p-6 relative">
+      <div
+        className={`max-w-[500px] bg-white w-[90%] rounded-sm shadow-lg p-6 relative transition-transform duration-300 ${
+          contactComponentShown ? "translate-y-0" : "translate-y-4"
+        }`}
+      >
         <button
           className="absolute top-[-2rem] right-[-2.8rem]"
           onClick={() => setContactComponent(false)}
         >
-          <X className="text-orange-500 " size={43} />
+          <X className="text-orange-500" size={43} />
         </button>
 
-        <h2 className="text-2xl font-bold  mb-6 text-center text-orange-500 border-b ">
+        <h2 className="text-2xl font-bold mb-6 text-center text-orange-500 border-b">
           Contact Us
         </h2>
         <form action="#" className="space-y-4">
@@ -45,7 +48,7 @@ const ContactUs = ({
             <textarea
               placeholder="Your message..."
               className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-              rows={4} // Corrected: Passed as a number, not a string
+              rows={4}
             ></textarea>
           </div>
           <div>
