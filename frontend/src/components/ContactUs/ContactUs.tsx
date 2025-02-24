@@ -2,11 +2,24 @@ import React from "react";
 
 import { X } from "lucide-react";
 
-const ContactUs = ({setContactComponent,contactComponentShown} : {setContactComponent:any,contactComponentShown:any} ) => {
+const ContactUs = ({
+  setContactComponent,
+  contactComponentShown,
+}: {
+  setContactComponent: any;
+  contactComponentShown: any;
+}) => {
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 flex justify-center items-center">
+    <div
+      className={`fixed inset-0 z-50 bg-black/50 flex justify-center items-center ${
+        contactComponentShown ? "visible" : "hidden"
+      }`}
+    >
       <div className="max-w-[500px] bg-white w-[90%] rounded-sm shadow-lg p-6 relative">
-        <button className="absolute top-[-2rem] right-[-2.8rem]">
+        <button
+          className="absolute top-[-2rem] right-[-2.8rem]"
+          onClick={() => setContactComponent(false)}
+        >
           <X className="text-orange-500 " size={43} />
         </button>
 
