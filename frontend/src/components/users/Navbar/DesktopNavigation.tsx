@@ -1,43 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { Search } from "lucide-react";
-
-import { CircleArrowLeft } from "lucide-react";
-
-import { Menu } from "lucide-react";
-
+import { Search, CircleArrowLeft, Menu } from "lucide-react";
+import { useRouter } from "next/navigation";
 import "./Navbar.css";
 
 const DesktopNavigation = ({
   openNavbar,
   setContactComponent,
 }: {
-  openNavbar: any;
-  setContactComponent: any;
+  openNavbar: () => void;
+  setContactComponent: (value: boolean) => void;
 }) => {
+  const router = useRouter();
   const [navBg, setNavBg] = useState(false);
 
+  // Handle scroll event efficiently
   useEffect(() => {
-    const handler = () => {
-      if (window.scrollY >= 90) {
-        setNavBg(true);
-      } else {
-        setNavBg(false);
-      }
-    };
-
-    window.addEventListener("scroll", handler);
-
-    return () => window.removeEventListener("scroll", handler);
+    const handleScroll = () => setNavBg(window.scrollY >= 90);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleScroll = (id: string) => {
-    const section = document.getElementById(id);
-
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  // Smooth scrolling handler
+  const handleScroll = useCallback(
+    (id: string, link?: string) => {
+      if (id === "contact") setContactComponent(true);
+      if (id === "hero" && link) router.push(link);
+      const section = document.getElementById(id);
+      if (section)
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+    [router, setContactComponent]
+  );
 
   return (
     <header
@@ -50,34 +44,26 @@ const DesktopNavigation = ({
         <div>
           <Link
             href="/"
-            className="text-xl flex  items-center font-bold text-gray-800"
+            className="text-xl flex items-center font-bold text-gray-800"
           >
-            <span className="mr-[0.6rem]">
-              <CircleArrowLeft className="text-orange-500 h-[37px] w-[37px]" />
-            </span>
-            <p className="text-white font-semibold"> LOGO</p>
+            <CircleArrowLeft className="text-orange-500 h-[37px] w-[37px] mr-2" />
+            <p className="text-white font-semibold">LOGO</p>
           </Link>
         </div>
 
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
           {[
-            { name: "Home", id: "hero" },
+            { name: "Home", id: "hero", link: "/" },
             { name: "About Us", id: "about" },
             { name: "Donation", id: "donate" },
             { name: "Volunteers", id: "volunteers" },
             { name: "News", id: "news" },
             { name: "Contact Us", id: "contact" },
-          ].map(({ name, id }) => (
+          ].map(({ name, id, link = "#" }) => (
             <li key={id}>
               <button
-                onClick={() => {
-                  handleScroll(id);
-
-                  if (id === "contact") {
-                    setContactComponent(true);
-                  }
-                }}
+                onClick={() => handleScroll(id, link)}
                 className="hover:text-orange-500 transition text-white tracking-wider focus:outline-none"
               >
                 {name}
@@ -93,10 +79,17 @@ const DesktopNavigation = ({
               Donate Now
             </button>
           </Link>
-          <button className="p-2 text-gray-600 hover:text-gray-900 transition">
+          <button
+            className="p-2 text-gray-600 hover:text-gray-900 transition"
+            aria-label="Search"
+          >
             <Search className="w-5 h-5 text-orange-500" />
           </button>
-          <button className="block md:hidden" onClick={openNavbar}>
+          <button
+            className="block md:hidden"
+            onClick={openNavbar}
+            aria-label="Open Menu"
+          >
             <Menu className="text-orange-500 h-10 w-10" />
           </button>
         </div>
