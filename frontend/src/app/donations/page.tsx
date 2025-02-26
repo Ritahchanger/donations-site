@@ -1,6 +1,9 @@
-"use client"
+"use client";
 import Navbar from "@/components/users/Navbar/Navbar";
 import { useState } from "react";
+
+import DonationsForm from "@/components/Donations/DonationsForm";
+import WhatDonorsSay from "@/components/Donations/WhatDonorsSay";
 
 const DonationPage: React.FC = () => {
   const [amount, setAmount] = useState<number>(50); // Default amount
@@ -33,48 +36,14 @@ const DonationPage: React.FC = () => {
       </div>
 
       {/* Donation Form */}
-      <div className="max-w-lg mx-auto bg-white text-black p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-4">Give a Donation</h2>
-        <form onSubmit={handleDonate}>
-          <label className="block mb-2 font-medium">Select Amount ($)</label>
-          <div className="flex gap-3 mb-4">
-            {[10, 25, 50, 100].map((amt) => (
-              <button
-                key={amt}
-                type="button"
-                className={`px-4 py-2 border rounded ${
-                  amount === amt ? "bg-green-500 text-white" : "bg-gray-200"
-                }`}
-                onClick={() => setAmount(amt)}
-              >
-                ${amt}
-              </button>
-            ))}
-            <input
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
-              className="w-20 p-2 border rounded"
-            />
-          </div>
-
-          <label className="block mb-2 font-medium">Message (Optional)</label>
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="w-full p-2 border rounded mb-4"
-            placeholder="Leave a message..."
-          ></textarea>
-
-          <button
-            type="submit"
-            className="bg-green-500 text-white px-4 py-2 rounded w-full"
-            disabled={loading}
-          >
-            {loading ? "Processing..." : "Donate Now"}
-          </button>
-        </form>
-      </div>
+      <DonationsForm
+        handleDonate={handleDonate}
+        amount={amount}
+        setAmount={setAmount}
+        message={message}
+        setMessage={setMessage}
+        loading={loading}
+      />
 
       {/* Impact Section */}
       <div className="text-center py-12">
@@ -86,14 +55,7 @@ const DonationPage: React.FC = () => {
       </div>
 
       {/* Testimonials */}
-      <div className="max-w-4xl mx-auto bg-white text-black p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-center">What Our Donors Say</h2>
-        <p className="mt-4 italic">
-          "Donating to this cause has been life-changing. I see the impact
-          directly!" - Alex J.
-        </p>
-      </div>
-
+      <WhatDonorsSay />
       {/* FAQs */}
       <div className="max-w-4xl mx-auto p-6">
         <h2 className="text-2xl font-bold text-center">
