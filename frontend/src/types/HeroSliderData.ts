@@ -7,6 +7,7 @@ interface heroSlider {
   urlImage: string;
 
   buttonDesc: string;
+  buttonUrl: string;
 }
 
 export type { heroSlider };

@@ -5,6 +5,8 @@ import "react-multi-carousel/lib/styles.css";
 import { HeroData } from "@/constants/HeroData";
 import Image from "next/image";
 
+import { useRouter } from "next/navigation";
+
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
@@ -13,6 +15,12 @@ const responsive = {
 };
 
 const Hero = () => {
+  const router = useRouter();
+
+  const navigateRequiredPage = (link: string) => {
+    router.push(link);
+  };
+
   return (
     <div className="hero relative">
       <Carousel
@@ -49,7 +57,12 @@ const Hero = () => {
                 {item.title}
               </h2>
               <p className="text-lg md:text-xl max-w-2xl">{item.description}</p>
-              <button className="bg-orange-500 border-none px-[3rem] py-[0.5rem] rounded-[30px] mt-[2rem]">
+              <button
+                className="bg-orange-500 border-none px-[3rem] py-[0.5rem] rounded-[30px] mt-[2rem]"
+                onClick={() => {
+                  navigateRequiredPage(item.buttonUrl);
+                }}
+              >
                 {item.buttonDesc}
               </button>
             </div>

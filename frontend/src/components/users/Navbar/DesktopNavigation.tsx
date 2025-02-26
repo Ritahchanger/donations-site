@@ -88,7 +88,7 @@ const DesktopNavigation = ({
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <Link href="/donate">
+          <Link href="#">
             <button className="bg-orange-500 text-white px-5 py-[0.2rem] rounded-full font-medium border-2 border-orange-500 transition hover:bg-transparent hover:text-orange-500">
               Donate Now
             </button>

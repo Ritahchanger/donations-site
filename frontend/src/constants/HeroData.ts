@@ -7,7 +7,8 @@ const HeroData: heroSlider[] = [
     description:
       "Whether through donating, volunteering, or spreading the word, every action counts. Help us build stronger, drug-free communities and empower the next generation",
     urlImage: "/assets/hero2.jpg",
-    buttonDesc:"Give A Donation"
+    buttonUrl: "/donations",
+    buttonDesc: "Give A Donation",
   },
 
   {
@@ -16,7 +17,8 @@ const HeroData: heroSlider[] = [
     description:
       "Join us in our mission to uplift marginalized youth, create opportunities, and inspire hope for a brighter future. Together, we can make a difference.",
     urlImage: "/assets/hero1.jpg",
-    buttonDesc:"Explore More",
+    buttonUrl: "#",
+    buttonDesc: "Explore More",
   },
 ];
 
